@@ -1,0 +1,17 @@
+regex/\.(wav|WAV|Wav|snd|SND|Snd|voc|VOC|Voc|au|AU|Au)$
+        Open=play %f
+# PDF Viewer
+regex/\.([pP][dD][fF])$
+        Open=xpdf %f
+# MP3 Player
+regex/\.([mM][pP]3)$
+				Open=mpg123 %f
+# MP3 Streamer
+regex/\.([pP][lL][sS])$
+				Open=mpg123 -@ %f
+# tar
+regex/\.(tar|TAR)$
+Open=%cd %p#utar
+View=%view{ascii} tar tvvf %f 
+
+

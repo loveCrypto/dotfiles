@@ -1,0 +1,154 @@
+# Colorize the Shell
+alias ls='ls -loBh --color=auto --group-directories-first'
+#alias dir='ls --color=auto --format=vertical'
+#alias vdir='ls --color=auto --format=long'
+
+alias grep='grep --color=auto'
+#alias fgrep='fgrep --color=auto'
+#alias egrep='egrep --color=auto'
+
+alias diff='colordiff' 
+
+
+# vor jeder Aktion nachfragen ob es auch beabsichtigt ist
+#alias rm='rm -i' # für jede Datei einzeln nachfragen
+#alias rm='rm -I' # nur einmal nachfragen 
+alias rm='timeout 3 rm -Iv --one-file-system' # wird nicht in der History gespeichert und alle Dateien übersprungen die nicht auf dem gleichen Pfad wie die Shell selber ausgeführt werden
+alias mv='mv -i'
+alias cp='cp -i'
+alias ln='ln -i'
+
+alias vimm="vim -u NONE -N -c 'set ttym=urxvt mousemodel=extend mouse=a'"
+# Timestamp
+alias ts='date -I'
+alias mkts='ts | xargs mkdir'
+
+# Nuetzliche Sachen One-Liner 
+alias psx='ps auxw | grep -v grep | grep $1'
+alias pdfx='pdftk *.pdf cat output komplett.pdf' 
+alias uz='for i in *.zip; do unzip $i && rm -f $i; done'
+
+# Systemaktualisierung Gentoo
+alias es='sudo nice -n 19 emerge --sync'
+alias esu='es && sudo nice -n 19 emerge -vuD world system'
+alias eu='sudo nice -n 19 emerge -avuD world system'
+alias eun='sudo nice -n 19 emerge -avuND world system'
+alias edc='sudo nice -n 19 emerge -av --depclean'
+alias ei='sudo nice -n 19 emerge -av $1'
+alias s='nice -n 19 emerge --search $1'
+alias ep='nice -n 19 emerge -vp $1'
+alias er='sudo nice -n 19 emerge --resume' 
+alias ers='sudo nice -n 19 emerge --resume --skipfirst' 
+
+# Gentoo Config Files
+alias maco='sudo vim /etc/make.conf'
+alias world='sudo vim /var/lib/portage/world'
+alias keywords='sudo vim /etc/portage/package.keywords'
+alias use='sudo vim /etc/portage/package.use'
+
+# Openbox Config Files
+alias aust='vim .config/openbox/autostart'
+alias menu='vim .config/openbox/menu.xml'
+alias tast='vim .config/openbox/rc.xml'
+
+# Pfade
+alias usl='cd /usr/src/linux'
+
+# GPG
+alias gpgid='A7DA76B2'
+alias fingerprint='gpg --fingerprint A7DA76B2'
+alias gpgref='gpg --refresh-keys'
+
+# Bildschirmfoto Screenshot
+alias bild='import -window root -display :0 ~/Desktop/Bildschirmfoto.png' 
+
+# Standby
+alias sb='sudo /etc/acpi/actions/sleep.sh'
+
+# Kernel
+alias smm='sudo make menuconfig'
+alias mi='sudo make && sudo make modules_install && sudo mount /boot/ && sudo make install'
+
+#Wlan
+alias wr='sudo /etc/init.d/net.wlan0 restart'
+alias wrv='sudo pkill vpnc; sudo /etc/init.d/net.wlan0 restart && sudo vpnc'
+
+# DigiCam
+alias ph='cd ~/pictures && mkts && cd $(ts) && gphoto2 -P'
+
+# Music
+alias uzic='mpp http://www.uzic.ch/tek.m3u'
+
+# USB
+#alias usb='sudo mount /dev/sda1 /mnt/usb'
+alias usb='sudo mount -o uid=illu /dev/sdb1 /mnt/usb'
+alias uusb='sudo umount /mnt/usb'
+
+# Mplayer
+alias mpp='mplayer -cache 3000 -playlist $1'
+alias mpv='mplayer -cache 20000 -playlist $1'
+alias mcv='mplayer -cache 20000 $1'
+alias m='mplayer $1'
+
+# Lazy
+alias c='clear'
+alias p='date && ping -c3 8.8.8.8'
+alias s='source ~/.bashrc'
+alias v='vim $1'
+
+# Failure
+alias cd..='cd ..'
+alias ..='cd ..'
+alias cd-='cd -'
+
+alias mkdir='mkdir -p'
+alias df='pydf -h'
+alias du='du -h'
+
+alias la='ls -laoBh --color=always --group-directories-first'
+# Mutt
+alias e='mutt -f ~/mail/inbox'
+alias mutt='mutt -f ~/mail/inbox'
+
+#chromium
+alias chromium='chromium --disk-cache-dir=/tmp/cache'
+
+# ToDo
+alias t='~/scripts/todo.sh'
+
+#Newsbeuter
+alias n='newsbeuter -r' 
+
+#Soundcloud 
+#alias sc='echo $1 | tr -d " " '
+alias scd='curl -F track=$1 http://offliberty.com/off.php | grep -i media.soundcloud | cut -d\" -f2'
+alias sc='curl -F track=$1 http://offliberty.com/off.php | grep -i media.soundcloud | cut -d\" -f2 | mplayer -playlist -'
+
+#Shorturl 
+alias surl='surl -s is.gd -c $1'
+
+#backup and crypt mail
+alias backupmail='zip -r /mnt/usb/mail_`date +%Y-%m-%d`.zip mail && gpg --encrypt -a --recipient love /mnt/usb/mail_`date +%Y-%m-%d`.zip'
+
+#read bz2/gz files
+#bzcat FILE
+#zless / zmore FILE
+
+#wget
+alias wget='wget -c'
+
+#ma eben nen Httpserver starten
+alias server='python -m http.server 8000'
+
+#maintaining grub2 after installing a new kernel
+alias grub2update='sudo mount /boot && sudo grub2-mkconfig -o /boot/grub/grub.cfg'
+
+alias torbrowser='~/./bin/tor-browser_en-US/start-tor-browser &>/dev/null &'
+alias mediathek='~/./bin/MediathekView_3.3.0/MediathekView__Linux.sh &>/dev/null &'
+alias jdownloader='java -jar ~/bin/jd2/JDownloader.jar &>/dev/null &'
+alias sqldeveloper='~/bin/sqldeveloper4/sqldeveloper.sh &>/dev/null &'
+#transfer transfer.sh
+alias upload='curl --progress-bar --upload-file "$1" https://transfer.sh/$(basename "$1") '
+
+alias moshi='mosh -port=65417 illu'
+alias wttr='curl wttr.in/berlin'
