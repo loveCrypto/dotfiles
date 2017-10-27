@@ -4474,11 +4474,14 @@ zrclocal
 # End:
 # ?slameiN wa!
 #toilet --gay hedonism 
-toilet -f larry3d --gay hedonism && echo "------------------------[ Liebe! Freiheit! Alles!" | sed -e 's/-/+/g'; 
+#toilet -f larry3d --gay hedonism && echo "------------------------[ Liebe! Freiheit! Alles!" | sed -e 's/-/+/g'; 
+figlet communism 4.0 && echo "------------------------[ Liebe! Freiheit! Alles!" | sed -e 's/-/+/g'; 
 echo -e "KW: \033[47;1;34m`date +%V`\033[0m\tDatum: \033[47;1;34m`date +%Y-%m-%d`\033[0m Tag: \033[47;1;34m`date +%A`\033[0m\tNr: \033[47;1;34m`date +%j`\033[0m\tZeit: \033[47;1;34m`date +%T`\033[0m\tLeft:  \033[47;1;34m$(($(date +%j -d"Dec 31")-$(date +%-j)))\033[0m";  
 #echo "--------------------------------------------------------------------------------" | sed -e 's/----/1312/g';
 #export PATH=${PATH}:/home/illu/workspace/android-sdk-linux_86/tools/
 #export PATH=/var/lib/gems/1.8/bin:$PATH
+export PATH=~/.local/bin:$PATH
+source virtualenvwrapper.sh
 ## GPG-AGENT
 GPG_TTY=$(tty)  
 export GPG_TTY 

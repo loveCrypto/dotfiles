@@ -1,5 +1,5 @@
 # Colorize the Shell
-alias ls='ls -loBh --color=auto --group-directories-first'
+alias ls='ls -loBhF --color=auto --group-directories-first'
 #alias dir='ls --color=auto --format=vertical'
 #alias vdir='ls --color=auto --format=long'
 
